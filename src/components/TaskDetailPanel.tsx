@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { ExternalLink } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
+import { Card, CardContent } from '@/components/ui/card';
 import type { Task } from '@/types';
 
 interface TaskDetailPanelProps {
@@ -92,15 +94,17 @@ function MetaField({
   colorClass: string;
 }) {
   return (
-    <div className="flex flex-col items-start gap-1">
-      <span className="text-xs text-muted-foreground">{label}</span>
-      <span
-        className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium ${colorClass}`}
-      >
-        {icon}
-        {value}
-      </span>
-    </div>
+    <Card className="flex-1 min-w-[120px]">
+      <CardContent className="p-3 flex flex-col items-start gap-1.5">
+        <span className="text-xs text-muted-foreground">{label}</span>
+        <span
+          className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium ${colorClass}`}
+        >
+          {icon}
+          {value}
+        </span>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -130,8 +134,14 @@ export default function TaskDetailPanel({
         return res.text();
       })
       .then((text) => {
+        // Detect SPA fallback (Vite returns index.html for missing files)
+        if (text.trimStart().startsWith('<!') || text.includes('@vite/client')) {
+          throw new Error('Received HTML instead of markdown');
+        }
         // Strip docusaurus frontmatter if present
-        const stripped = text.replace(/^---[\s\S]*?---\s*/, '');
+        let stripped = text.replace(/^---[\s\S]*?---\s*/, '');
+        // Strip the first markdown heading (duplicates the panel title)
+        stripped = stripped.replace(/^#\s+.+\n+/, '');
         setMarkdown(stripped);
         setMdLoading(false);
       })
@@ -168,7 +178,7 @@ export default function TaskDetailPanel({
       )}
 
       {/* Key metadata fields */}
-      <div className="flex flex-wrap gap-4">
+      <div className="grid grid-cols-4 gap-3">
         {task.priority && (
           <MetaField
             label="Priority"
@@ -210,7 +220,7 @@ export default function TaskDetailPanel({
       )}
       {!mdLoading && markdown && (
         <div className="prose prose-sm dark:prose-invert max-w-none">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{markdown}</ReactMarkdown>
         </div>
       )}
       {!mdLoading && !markdown && (

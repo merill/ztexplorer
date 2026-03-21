@@ -73,7 +73,7 @@ export default function MarkmapView({ root, theme, onLinkClick }: MarkmapProps) 
 
     const jsonOpts = {
       colorFreezeLevel: 2,
-      initialExpandLevel: 2,
+      initialExpandLevel: 3,
       maxWidth: 300,
       duration: 300,
       zoom: true,
@@ -85,7 +85,13 @@ export default function MarkmapView({ root, theme, onLinkClick }: MarkmapProps) 
       style: () => styleStr,
     };
 
-    mmRef.current = Markmap.create(svgRef.current, opts, markmapRoot);
+    const mm = Markmap.create(svgRef.current, opts, markmapRoot);
+    mmRef.current = mm;
+
+    // Zoom-to-fit after the initial expand/layout settles
+    requestAnimationFrame(() => {
+      mm.fit();
+    });
   }, [root, theme]);
 
   // Intercept link clicks inside the mindmap SVG

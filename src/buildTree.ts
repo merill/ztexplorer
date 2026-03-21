@@ -9,6 +9,9 @@ export function buildMindmapTree(data: PillarData, rootName: string): MindmapNod
   const tasksByArea = new Map<string, Map<string, PillarData['tasks']>>();
 
   for (const task of data.tasks) {
+    // Skip placeholder/hidden tasks
+    if (task.isHidden) continue;
+
     if (!tasksByArea.has(task.functionalAreaId)) {
       tasksByArea.set(task.functionalAreaId, new Map());
     }
@@ -30,7 +33,8 @@ export function buildMindmapTree(data: PillarData, rootName: string): MindmapNod
     if (swimlanes) {
       for (const [swimlaneName, tasks] of swimlanes) {
         const swimlaneNode: MindmapNode = {
-          name: swimlaneName,
+          name: swimlaneName || area.name,
+          icon: swimlaneName ? undefined : area.icon,
           children: tasks.map((task) => ({
             name: task.name,
             icon: task.icon,

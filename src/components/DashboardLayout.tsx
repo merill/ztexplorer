@@ -6,6 +6,7 @@ import {
   ExternalLink,
   LayoutDashboard,
   Moon,
+  Sparkles,
   Sun,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -90,6 +91,37 @@ export default function DashboardLayout() {
                 <img src={`/icons/${pillar.icon}`} alt="" className="h-4 w-4 shrink-0" />
                 {!collapsed && pillar.name}
               </NavLink>
+            ))}
+
+            <Separator className="my-2" />
+
+            {!collapsed && (
+              <div className="px-3 pt-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                More by merill
+              </div>
+            )}
+
+            {[
+              { name: 'merill.net', href: 'https://merill.net' },
+              { name: 'Entra News', href: 'https://entra.news' },
+              { name: 'Entra Chat', href: 'https://entra.chat' },
+              { name: 'Graph X-Ray', href: 'https://graphxray.merill.net' },
+              { name: 'Maester', href: 'https://maester.dev' },
+              { name: 'Lokka', href: 'https://lokka.dev' },
+            ].map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={link.name}
+                className={`flex items-center gap-3 rounded-md px-3 py-1.5 text-sm transition-colors text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground ${
+                  collapsed ? 'justify-center px-0' : ''
+                }`}
+              >
+                <Sparkles className="h-3.5 w-3.5 shrink-0" />
+                {!collapsed && link.name}
+              </a>
             ))}
           </nav>
         </ScrollArea>

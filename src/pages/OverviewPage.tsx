@@ -35,7 +35,7 @@ export default function OverviewPage() {
           configName: cfg.name,
           configIcon: cfg.icon,
           areas: data.functionalAreas,
-          tasks: data.tasks,
+          tasks: data.tasks.filter((t) => !t.isHidden),
         };
       })
     )

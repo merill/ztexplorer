@@ -20,6 +20,7 @@ export interface Task {
   swimlane: string;
   isCrossPillar: boolean;
   priority: string;
+  isHidden?: boolean;
 }
 
 export interface PillarData {

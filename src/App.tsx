@@ -12,7 +12,7 @@ function TaskSheet() {
 
   return (
     <Sheet open={!!selected} onOpenChange={(open) => !open && close()}>
-      <SheetContent className="p-0 flex flex-col sm:max-w-xl md:max-w-2xl">
+      <SheetContent className="p-0 flex flex-col sm:max-w-2xl md:max-w-4xl">
         <SheetHeader className="sr-only">
           <SheetTitle>{selected?.task.name ?? 'Task Details'}</SheetTitle>
           <SheetDescription>Task metadata and documentation</SheetDescription>
