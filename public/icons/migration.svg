@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="14" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+  
+  <!-- Migration arrow -->
+  <path d="M8 16H24M20 11L24 16L20 21" stroke="#f57c00" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="8" cy="16" r="2" fill="#f57c00"/>
+</svg>
