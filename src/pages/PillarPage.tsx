@@ -4,12 +4,15 @@ import MarkmapView from '@/components/MarkmapView';
 import { buildMindmapTree } from '@/buildTree';
 import { pillarConfigs } from '@/pillarConfig';
 import { useTheme } from '@/hooks/useTheme';
-import type { PillarData, MindmapNode } from '@/types';
+import { useTaskPanel } from '@/hooks/useTaskPanel';
+import type { PillarData, MindmapNode, Task } from '@/types';
 
 export default function PillarPage() {
   const { pillarId } = useParams<{ pillarId: string }>();
   const { theme } = useTheme();
+  const { openTask } = useTaskPanel();
   const [tree, setTree] = useState<MindmapNode | null>(null);
+  const [pillarData, setPillarData] = useState<PillarData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -25,6 +28,7 @@ export default function PillarPage() {
     setLoading(true);
     setError(null);
     setTree(null);
+    setPillarData(null);
 
     fetch(`/${config.dataFile}`)
       .then((res) => {
@@ -32,11 +36,11 @@ export default function PillarPage() {
         return res.text();
       })
       .then((text) => {
-        // Strip BOM if present (security-ops file has one)
         const cleaned = text.charCodeAt(0) === 0xfeff ? text.slice(1) : text;
         return JSON.parse(cleaned) as PillarData;
       })
       .then((data) => {
+        setPillarData(data);
         setTree(buildMindmapTree(data, config.name));
         setLoading(false);
       })
@@ -45,6 +49,15 @@ export default function PillarPage() {
         setLoading(false);
       });
   }, [config]);
+
+  // Build a lookup from link → Task so we can resolve clicked mindmap links
+  const handleLinkClick = (href: string) => {
+    if (!pillarData || !config) return;
+    const task = pillarData.tasks.find((t: Task) => t.link === href);
+    if (!task) return;
+    const area = pillarData.functionalAreas.find((a) => a.id === task.functionalAreaId);
+    openTask(task, config.name, area?.name ?? '');
+  };
 
   if (!config) {
     return (
@@ -78,14 +91,15 @@ export default function PillarPage() {
         <div>
           <h1 className="text-lg font-semibold">{config.name}</h1>
           <p className="text-xs text-muted-foreground">
-            {tree.children?.length} functional areas &middot; Scroll to zoom, drag to pan, click circles to expand/collapse
+            {tree.children?.length} functional areas &middot; Scroll to zoom, drag to pan, click
+            circles to expand/collapse
           </p>
         </div>
       </div>
 
       {/* Mindmap */}
       <div className="flex-1 min-h-0">
-        <MarkmapView root={tree} theme={theme} />
+        <MarkmapView root={tree} theme={theme} onLinkClick={handleLinkClick} />
       </div>
     </div>
   );

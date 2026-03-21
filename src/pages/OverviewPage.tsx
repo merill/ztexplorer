@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useTaskPanel } from '@/hooks/useTaskPanel';
 import { pillarConfigs } from '@/pillarConfig';
 import type { PillarData, FunctionalArea, Task } from '@/types';
 
@@ -20,6 +21,7 @@ export default function OverviewPage() {
   const [pillars, setPillars] = useState<PillarOverview[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { openTask } = useTaskPanel();
 
   useEffect(() => {
     Promise.all(
@@ -105,7 +107,8 @@ export default function OverviewPage() {
 
       {/* Pillar sections */}
       {pillars.map((pillar) => {
-        // Group tasks by functional area then swimlane
+        const areaNameMap = new Map(pillar.areas.map((a) => [a.id, a.name]));
+
         const tasksByArea = new Map<string, Map<string, Task[]>>();
         for (const task of pillar.tasks) {
           if (!tasksByArea.has(task.functionalAreaId)) {
@@ -152,7 +155,9 @@ export default function OverviewPage() {
                       {swimlanes &&
                         Array.from(swimlanes.entries()).map(([swimlaneName, tasks]) => (
                           <div key={swimlaneName}>
-                            <h4 className="font-medium text-muted-foreground mb-1">{swimlaneName}</h4>
+                            <h4 className="font-medium text-muted-foreground mb-1">
+                              {swimlaneName}
+                            </h4>
                             <ul className="space-y-0.5 pl-1">
                               {tasks.map((task) => (
                                 <li key={task.id} className="flex items-start gap-1.5">
@@ -161,18 +166,19 @@ export default function OverviewPage() {
                                     alt=""
                                     className="h-4 w-4 shrink-0 mt-0.5"
                                   />
-                                  {task.link ? (
-                                    <a
-                                      href={task.link}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="text-primary hover:underline"
-                                    >
-                                      {task.name}
-                                    </a>
-                                  ) : (
-                                    <span>{task.name}</span>
-                                  )}
+                                  <button
+                                    type="button"
+                                    onClick={() =>
+                                      openTask(
+                                        task,
+                                        pillar.configName,
+                                        areaNameMap.get(task.functionalAreaId) ?? '',
+                                      )
+                                    }
+                                    className="text-left text-primary hover:underline cursor-pointer"
+                                  >
+                                    {task.name}
+                                  </button>
                                 </li>
                               ))}
                             </ul>

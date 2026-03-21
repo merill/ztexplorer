@@ -6,6 +6,7 @@ import type { MindmapNode } from '@/types';
 interface MarkmapProps {
   root: MindmapNode;
   theme: 'light' | 'dark';
+  onLinkClick?: (href: string) => void;
 }
 
 function nodeToMarkdown(node: MindmapNode, depth: number = 0): string {
@@ -30,9 +31,11 @@ function nodeToMarkdown(node: MindmapNode, depth: number = 0): string {
 
 const transformer = new Transformer();
 
-export default function MarkmapView({ root, theme }: MarkmapProps) {
+export default function MarkmapView({ root, theme, onLinkClick }: MarkmapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const mmRef = useRef<Markmap | null>(null);
+  const onLinkClickRef = useRef(onLinkClick);
+  onLinkClickRef.current = onLinkClick;
 
   const renderMarkmap = useCallback(() => {
     if (!svgRef.current) return;
@@ -84,6 +87,29 @@ export default function MarkmapView({ root, theme }: MarkmapProps) {
 
     mmRef.current = Markmap.create(svgRef.current, opts, markmapRoot);
   }, [root, theme]);
+
+  // Intercept link clicks inside the mindmap SVG
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a');
+      if (!anchor) return;
+      const href = anchor.getAttribute('href');
+      if (!href) return;
+
+      if (onLinkClickRef.current) {
+        e.preventDefault();
+        e.stopPropagation();
+        onLinkClickRef.current(href);
+      }
+    };
+
+    svg.addEventListener('click', handleClick, true);
+    return () => svg.removeEventListener('click', handleClick, true);
+  }, []);
 
   useEffect(() => {
     renderMarkmap();
