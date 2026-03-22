@@ -1,73 +1,53 @@
-# React + TypeScript + Vite
+# Microsoft Zero Trust Framework Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive explorer for Microsoft's [Zero Trust Workshop](https://zerotrust.microsoft.com/). Browse all seven pillars, their functional areas, and tasks that make up the framework — each viewable as an interactive mindmap.
 
-Currently, two official plugins are available:
+**Live site:** [zerotrustexplorer.merill.net](https://zerotrustexplorer.merill.net)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What is this?
 
-## React Compiler
+Microsoft's [Zero Trust Workshop](https://zerotrust.microsoft.com/) is a wealth of knowledge on implementing Zero Trust using the Microsoft Security stack. It's designed to be used when running a series of workshops with a customer, walking through each pillar of the Zero Trust framework.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+As a side effect of being a workshop tool, the depth of guidance it contains isn't always in an easily digestible form for someone who simply wants to learn. This site reorganizes that knowledge into an interactive knowledge tree that you can explore at your own pace — spanning identity, devices, data, network, infrastructure, security operations, and AI.
 
-## Expanding the ESLint configuration
+Whether you're a security architect, IT admin, or just curious about how Microsoft approaches Zero Trust, this site aims to make the concepts approachable and the guidance easy to navigate.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Overview dashboard** — Browse all 7 pillars with their functional areas and tasks in a card grid
+- **Interactive mindmaps** — Explore each pillar as a zoomable, pannable mindmap
+- **Zero Trust Book** — A printable, long-form reference with chapters per pillar and PDF export
+- **Auto-synced content** — Data stays current via daily automated sync from upstream sources
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Pillars
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Pillar | Description |
+|---|---|
+| Identity | Identity and access management |
+| Devices | Device compliance and management |
+| Data | Data protection and governance |
+| Network | Network security and segmentation |
+| Infrastructure | Application and infrastructure security |
+| Security Operations | Threat detection, investigation, and response |
+| AI | AI security posture, agent governance, and threat protection |
+
+## How it's built
+
+The site is a React app (TypeScript + Vite) that pulls its data directly from the upstream Zero Trust Workshop sources. No content is manually copied or maintained here — everything stays in sync automatically.
+
+A daily automated sync runs via GitHub Actions every morning at 6 AM UTC. It fetches the latest pillar data from [zerotrust.microsoft.com](https://zerotrust.microsoft.com/) and pulls the workshop documentation (Markdown) from the [microsoft/zerotrustassessment](https://github.com/microsoft/zerotrustassessment) GitHub repository. When changes are detected upstream, they're committed to this repository automatically — keeping the content fresh without any manual intervention.
+
+## Development
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Who built this?
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This is a personal project by [Merill Fernando](https://merill.net), a Product Manager at Microsoft.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+*This site is not a Microsoft product and is not affiliated with or endorsed by Microsoft.*
