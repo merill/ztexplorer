@@ -155,3 +155,80 @@
 @utility slide-out-to-right {
   --tw-exit-translate-x: 100%;
 }
+
+/* ── Print styles for the Book page ──────────────────────────────── */
+@media print {
+  /* Hide the sidebar, mobile nav, and any fixed overlays */
+  aside,
+  header.md\:hidden,
+  .md\:hidden {
+    display: none !important;
+  }
+
+  /*
+   * Break out of ALL flex/overflow containers so content flows naturally.
+   * The chain is: root flex > content column > main > book-page > book-content.
+   * Every one of these has height constraints and overflow: auto/hidden that
+   * clip content during print. Override them all to display: block / auto height.
+   */
+  body,
+  #root {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* DashboardLayout root: flex h-screen overflow-hidden */
+  .book-page,
+  .book-page ~ *,
+  body *:has(> .book-page),
+  body *:has(> * > .book-page),
+  body *:has(> * > * > .book-page) {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    position: static !important;
+  }
+
+  /* The book-page itself */
+  .book-page {
+    width: 100% !important;
+  }
+
+  /* Reset dark mode for print — force light colors */
+  .dark .book-page {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --border: oklch(0.922 0 0);
+    --primary: oklch(0.205 0 0);
+    color: oklch(0.145 0 0);
+    background: white;
+  }
+
+  /* Clean typography for print */
+  .book-page {
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+  }
+
+  .book-page h1 { font-size: 24pt; }
+  .book-page h2 { font-size: 18pt; }
+  .book-page h3 { font-size: 14pt; }
+
+  /* Avoid orphaned headings */
+  .book-page h2,
+  .book-page h3,
+  .book-page h4 {
+    break-after: avoid;
+  }
+
+  /* No shadow / border-radius in print */
+  .book-page .shadow-md {
+    box-shadow: none;
+  }
+}

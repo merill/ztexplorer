@@ -85,7 +85,7 @@ export default function OverviewPage() {
           </a>
           . Browse all {pillars.length} pillars, {totalAreas} functional areas, and {totalTasks} tasks
           that make up the framework. Each pillar can be viewed as an interactive mindmap &mdash; click
-          a pillar name below or use the sidebar to navigate.
+          a pillar name below or use the sidebar to view as mind maps.
         </p>
       </div>
 

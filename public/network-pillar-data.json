@@ -3,7 +3,7 @@
     {
       "id": "vpn-modernization",
       "name": "Modernize VPN and protect legacy apps",
-      "icon": "global-secure-access.svg",
+      "icon": "security.svg",
       "description": "Modernize VPN infrastructure and protect legacy applications"
     },
     {

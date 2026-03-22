@@ -2,6 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 import DashboardLayout from '@/components/DashboardLayout';
 import OverviewPage from '@/pages/OverviewPage';
 import PillarPage from '@/pages/PillarPage';
+import AboutPage from '@/pages/AboutPage';
+import BookPage from '@/pages/BookPage';
 import { TaskPanelProvider, useTaskPanel } from '@/hooks/useTaskPanel';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -38,6 +40,8 @@ export default function App() {
         <Route element={<DashboardLayout />}>
           <Route index element={<OverviewPage />} />
           <Route path="pillar/:pillarId" element={<PillarPage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="book" element={<BookPage />} />
         </Route>
       </Routes>
       <TaskSheet />

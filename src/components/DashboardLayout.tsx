@@ -1,9 +1,11 @@
 import { useState, useCallback } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import {
+  BookOpen,
   ChevronLeft,
   ChevronRight,
   ExternalLink,
+  Info,
   LayoutDashboard,
   Moon,
   Sparkles,
@@ -65,6 +67,24 @@ export default function DashboardLayout() {
               {!collapsed && 'Overview'}
             </NavLink>
 
+            {/* Zero Trust Book link */}
+            <NavLink
+              to="/book"
+              title="Zero Trust Book"
+              className={({ isActive }) =>
+                `flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                  collapsed ? 'justify-center px-0' : ''
+                } ${
+                  isActive
+                    ? 'bg-sidebar-accent text-sidebar-accent-foreground'
+                    : 'text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground'
+                }`
+              }
+            >
+              <BookOpen className="h-4 w-4 shrink-0" />
+              {!collapsed && 'Zero Trust Book'}
+            </NavLink>
+
             {!collapsed && (
               <div className="px-3 pt-4 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                 Mind Maps
@@ -105,9 +125,7 @@ export default function DashboardLayout() {
               { name: 'merill.net', href: 'https://merill.net' },
               { name: 'Entra News', href: 'https://entra.news' },
               { name: 'Entra Chat', href: 'https://entra.chat' },
-              { name: 'Graph X-Ray', href: 'https://graphxray.merill.net' },
               { name: 'Maester', href: 'https://maester.dev' },
-              { name: 'Lokka', href: 'https://lokka.dev' },
             ].map((link) => (
               <a
                 key={link.href}
@@ -130,6 +148,22 @@ export default function DashboardLayout() {
 
         {/* Footer */}
         <div className="flex flex-col gap-1 p-2">
+          <NavLink
+            to="/about"
+            title="About"
+            className={({ isActive }) =>
+              `flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                collapsed ? 'justify-center px-0' : ''
+              } ${
+                isActive
+                  ? 'bg-sidebar-accent text-sidebar-accent-foreground'
+                  : 'text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground'
+              }`
+            }
+          >
+            <Info className="h-4 w-4 shrink-0" />
+            {!collapsed && 'About'}
+          </NavLink>
           {!collapsed && (
             <a
               href="https://zerotrust.microsoft.com/"
@@ -206,6 +240,16 @@ export default function DashboardLayout() {
           >
             Overview
           </NavLink>
+          <NavLink
+            to="/book"
+            className={({ isActive }) =>
+              `shrink-0 px-4 py-2 text-xs font-medium border-b-2 transition-colors ${
+                isActive ? 'border-primary text-foreground' : 'border-transparent text-muted-foreground'
+              }`
+            }
+          >
+            ZT Book
+          </NavLink>
           {pillarConfigs.map((p) => (
             <NavLink
               key={p.id}
@@ -219,6 +263,16 @@ export default function DashboardLayout() {
               {p.name}
             </NavLink>
           ))}
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `shrink-0 px-4 py-2 text-xs font-medium border-b-2 transition-colors ${
+                isActive ? 'border-primary text-foreground' : 'border-transparent text-muted-foreground'
+              }`
+            }
+          >
+            About
+          </NavLink>
         </div>
 
         {/* Page content */}
