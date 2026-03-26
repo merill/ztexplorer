@@ -735,6 +735,7 @@
     },
     {
       "id": "DEV-088",
+      "name": "Enable Windows Firewall",
       "implementationEffort": "Low",
       "userImpact": "Low",
       "dependencies": [],
