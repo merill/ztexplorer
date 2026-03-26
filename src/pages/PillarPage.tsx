@@ -41,7 +41,7 @@ export default function PillarPage() {
       })
       .then((data) => {
         setPillarData(data);
-        setTree(buildMindmapTree(data, config.name));
+        setTree(buildMindmapTree(data, config.name, config.icon));
         setLoading(false);
       })
       .catch((err) => {

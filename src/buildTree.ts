@@ -1,8 +1,9 @@
 import type { PillarData, MindmapNode } from './types';
 
-export function buildMindmapTree(data: PillarData, rootName: string): MindmapNode {
+export function buildMindmapTree(data: PillarData, rootName: string, rootIcon?: string): MindmapNode {
   const root: MindmapNode = {
     name: rootName,
+    icon: rootIcon,
     children: [],
   };
 
