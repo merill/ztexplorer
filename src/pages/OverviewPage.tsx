@@ -72,7 +72,7 @@ export default function OverviewPage() {
     <div className="p-6 max-w-7xl mx-auto space-y-8">
       {/* Page header */}
       <div className="space-y-3">
-        <h1 className="text-3xl font-bold tracking-tight">Microsoft Zero Trust Framework</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Zero Trust Framework Explorer</h1>
         <p className="text-muted-foreground max-w-3xl">
           An interactive explorer for Microsoft's{' '}
           <a
