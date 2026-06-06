@@ -37,22 +37,6 @@
       "priority": "P0"
     },
     {
-      "id": "RMT_002",
-      "name": "Document/Identify all approved cross-boundary data sharing scenarios",
-      "implementationEffort": "Medium",
-      "userImpact": "Low",
-      "icon": "RMT_002.svg",
-      "license": "AIP-P1",
-      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/data/RMT_002",
-      "status": "not-reviewed",
-      "phase": "Then",
-      "functionalAreaId": "know-protect-data",
-      "dependencies": [],
-      "CISAMaturityStage": "Traditional",
-      "swimlane": "Data Identification",
-      "priority": "P0"
-    },
-    {
       "id": "RMT_003",
       "name": "Document/Identify approved sharing of sensitive information with external partners",
       "implementationEffort": "Medium",
