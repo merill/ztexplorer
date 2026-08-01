@@ -43,7 +43,7 @@
       "functionalAreaId": "tenant-admin",
       "phase": "First",
       "license": "Entra-P2",
-      "link": "docs/devices/DEV_116.md",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/DEV_116",
       "CISAMaturityStage": "Initial",
       "swimlane": "Admin Access Controls",
       "isCrossPillar": true,
@@ -60,7 +60,7 @@
       "functionalAreaId": "tenant-admin",
       "phase": "Then",
       "license": "Intune-P1",
-      "link": "docs/devices/DEV_118.md",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/DEV_118",
       "CISAMaturityStage": "Advanced",
       "swimlane": "Admin Access Controls",
       "priority": "P1"
@@ -76,7 +76,7 @@
       "functionalAreaId": "tenant-admin",
       "phase": "Then",
       "license": "Intune-P1",
-      "link": "docs/devices/DEV_120.md",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/DEV_120",
       "CISAMaturityStage": "Advanced",
       "swimlane": "Admin Access Controls",
       "priority": "P2"
@@ -92,7 +92,7 @@
       "functionalAreaId": "tenant-admin",
       "phase": "Then",
       "license": "Intune-P1",
-      "link": "docs/devices/DEV_121.md",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/DEV_121",
       "CISAMaturityStage": "Advanced",
       "swimlane": "Admin Access Controls",
       "priority": "P2"
@@ -108,7 +108,7 @@
       "functionalAreaId": "tenant-admin",
       "phase": "Next",
       "license": "Intune-P1",
-      "link": "docs/devices/DEV_119.md",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/DEV_119",
       "CISAMaturityStage": "Optimal",
       "swimlane": "Admin Access Controls",
       "priority": "P3"
@@ -124,7 +124,7 @@
       "functionalAreaId": "tenant-admin",
       "phase": "Next",
       "license": "Intune-P1",
-      "link": "docs/devices/DEV_122.md",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/DEV_122",
       "CISAMaturityStage": "Optimal",
       "swimlane": "Admin Access Controls",
       "priority": "P3"
