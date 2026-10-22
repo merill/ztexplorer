@@ -83,7 +83,7 @@
     },
     {
       "id": "DEV-121",
-      "name": "Scope Tags",
+      "name": "Scope Tags & Scoped Permissions",
       "implementationEffort": "Medium",
       "userImpact": "Low",
       "dependencies": [],
@@ -101,17 +101,17 @@
       "id": "DEV-119",
       "name": "Multi-Admin Approval",
       "implementationEffort": "Medium",
-      "userImpact": "Low",
+      "userImpact": "Medium",
       "dependencies": [],
       "status": "not-reviewed",
       "icon": "tenant-admin.svg",
       "functionalAreaId": "tenant-admin",
-      "phase": "Next",
+      "phase": "Then",
       "license": "Intune-P1",
       "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/DEV_119",
       "CISAMaturityStage": "Optimal",
       "swimlane": "Admin Access Controls",
-      "priority": "P3"
+      "priority": "P2"
     },
     {
       "id": "DEV-122",
@@ -221,7 +221,7 @@
     },
     {
       "id": "DEV-030",
-      "name": "Autopilot Device Prep",
+      "name": "Autopilot Device Prep & Association",
       "implementationEffort": "Medium",
       "userImpact": "Medium",
       "dependencies": [
@@ -230,12 +230,12 @@
       "status": "not-reviewed",
       "icon": "tenant-admin.svg",
       "functionalAreaId": "mdm-windows",
-      "phase": "Next",
+      "phase": "Then",
       "license": "Intune-P1",
       "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_186",
       "CISAMaturityStage": "Advanced",
       "swimlane": "Windows Enrollment",
-      "priority": "P3"
+      "priority": "P2"
     },
     {
       "id": "DEV-031",
@@ -474,7 +474,7 @@
     },
     {
       "id": "DEV-085",
-      "name": "Account protection",
+      "name": "Account & Administrator Protection",
       "implementationEffort": "Low",
       "userImpact": "Low",
       "dependencies": [],
@@ -515,7 +515,7 @@
       "icon": "RMI_063.svg",
       "functionalAreaId": "mdm-windows",
       "phase": "Next",
-      "license": "I-Suite",
+      "license": "E5; I-Suite",
       "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_166",
       "swimlane": "Least Privilege and Auth",
       "CISAMaturityStage": "Advanced",
@@ -581,14 +581,14 @@
       "functionalAreaId": "mdm-windows",
       "phase": "Then",
       "license": "Intune-P1",
-      "link": "https://learn.microsoft.com/en-us/mem/intune/protect/security-baselines",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_139",
       "swimlane": "Endpoint Security",
       "CISAMaturityStage": "Initial",
       "priority": "P0"
     },
     {
       "id": "DEV-131",
-      "name": "Windows Remote Help",
+      "name": "Windows Remote Help (Attended & Unattended)",
       "implementationEffort": "Low",
       "userImpact": "Low",
       "dependencies": [],
@@ -596,8 +596,8 @@
       "icon": "RMI_109.svg",
       "functionalAreaId": "mdm-windows",
       "phase": "Next",
-      "license": "Intune-P2",
-      "link": "https://learn.microsoft.com/en-us/mem/intune/fundamentals/remote-help",
+      "license": "E3; Intune-P2",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_167",
       "swimlane": "Endpoint Security",
       "CISAMaturityStage": "Advanced",
       "priority": "P3"
@@ -652,7 +652,7 @@
     },
     {
       "id": "DEV-135",
-      "name": "Enterprise App Management",
+      "name": "Enterprise App Management (Auto-Update)",
       "implementationEffort": "Medium",
       "userImpact": "Low",
       "dependencies": [],
@@ -660,8 +660,8 @@
       "icon": "RMI_109.svg",
       "functionalAreaId": "mdm-windows",
       "phase": "Next",
-      "license": "I-Suite",
-      "link": "https://learn.microsoft.com/en-us/mem/intune/apps/enterprise-app-management",
+      "license": "E5; I-Suite",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_187",
       "swimlane": "Windows Apps",
       "CISAMaturityStage": "Optimal",
       "priority": "P3"
@@ -684,7 +684,7 @@
     },
     {
       "id": "DEV-137",
-      "name": "Device Inventory",
+      "name": "Device Inventory & Properties Catalog",
       "implementationEffort": "Low",
       "userImpact": "Low",
       "dependencies": [],
@@ -693,7 +693,7 @@
       "functionalAreaId": "mdm-windows",
       "phase": "First",
       "license": "Intune-P1",
-      "link": "https://learn.microsoft.com/en-us/mem/intune/remote-actions/device-inventory",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_Win_Suite_01_AdvancedAnalytics",
       "swimlane": "Reporting and Automation",
       "CISAMaturityStage": "Initial",
       "priority": "P0"
@@ -772,7 +772,7 @@
       "icon": "RMI_109.svg",
       "functionalAreaId": "mdm-windows",
       "phase": "Next",
-      "license": "I-Suite",
+      "license": "E3; I-Suite",
       "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_Win_Suite_01_AdvancedAnalytics",
       "swimlane": "Reporting and Automation",
       "CISAMaturityStage": "Optimal",
@@ -919,12 +919,12 @@
       "status": "not-reviewed",
       "icon": "RMI_125.svg",
       "functionalAreaId": "mdm-windows",
-      "phase": "Next",
+      "phase": "Then",
       "license": "Intune-P1",
-      "link": "https://learn.microsoft.com/en-us/mem/intune/protect/windows-10-expedite-updates",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_Win_Hotpatch_VBS",
       "swimlane": "Windows Updates",
       "CISAMaturityStage": "Initial",
-      "priority": "P3"
+      "priority": "P2"
     },
     {
       "id": "DEV-130",
@@ -1048,15 +1048,15 @@
       "icon": "RMI_109.svg",
       "functionalAreaId": "mdm-windows",
       "phase": "Next",
-      "license": "I-Suite",
-      "link": "https://learn.microsoft.com/en-us/mem/intune/protect/cloud-pki-overview",
+      "license": "E5; I-Suite",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_163",
       "swimlane": "Windows Resource Access",
       "CISAMaturityStage": "Advanced",
       "priority": "P3"
     },
     {
       "id": "DEV-097",
-      "name": "MAM for Edge",
+      "name": "MAM for Edge & Secure Enterprise Browser",
       "implementationEffort": "Low",
       "userImpact": "Medium",
       "dependencies": [],
@@ -1120,7 +1120,7 @@
     },
     {
       "id": "DEV-051",
-      "name": "Work or School Account",
+      "name": "Work or School Account (Multi-Account MAM)",
       "implementationEffort": "Medium",
       "userImpact": "Medium",
       "dependencies": [],
@@ -1129,7 +1129,7 @@
       "functionalAreaId": "mam-ios-android",
       "phase": "Then",
       "license": "Intune-P1",
-      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_021",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_MAM_22_Work%20or%20School%20Account",
       "swimlane": "Access Requirements",
       "CISAMaturityStage": "Initial",
       "priority": "P1"
@@ -1176,7 +1176,7 @@
       "icon": "RMI_109.svg",
       "functionalAreaId": "mam-ios-android",
       "phase": "Next",
-      "license": "Intune-P2",
+      "license": "E3; Intune-P2",
       "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_MAM_09_Tunnel%20for%20MAM",
       "swimlane": "Access Requirements",
       "CISAMaturityStage": "Advanced",
@@ -1414,7 +1414,7 @@
     },
     {
       "id": "DEV-056",
-      "name": "Require SafetyNet",
+      "name": "Require Play Integrity Verdict",
       "implementationEffort": "Low",
       "userImpact": "Low",
       "dependencies": [],
@@ -1446,7 +1446,7 @@
     },
     {
       "id": "DEV-058",
-      "name": "SafetyNet/ Hardware Back Key",
+      "name": "Play Strong Integrity (Hardware Backed)",
       "implementationEffort": "Low",
       "userImpact": "Low",
       "dependencies": [],
@@ -1455,7 +1455,7 @@
       "functionalAreaId": "mam-ios-android",
       "phase": "Then",
       "license": "Intune-P1",
-      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_044",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_043",
       "swimlane": "Conditional Launch",
       "CISAMaturityStage": "Initial",
       "priority": "P2"
@@ -1566,7 +1566,7 @@
     },
     {
       "id": "DEV-023",
-      "name": "Mobile Threat Defense",
+      "name": "Mobile Threat Defense (MTD Role & Auto-Launch)",
       "implementationEffort": "Medium",
       "userImpact": "Medium",
       "dependencies": [
@@ -1632,7 +1632,7 @@
     },
     {
       "id": "DEV-145",
-      "name": "Intune Tunnel",
+      "name": "Intune Tunnel (Strict Tunnel Mode)",
       "implementationEffort": "Medium",
       "userImpact": "Low",
       "dependencies": [],
@@ -1641,7 +1641,7 @@
       "functionalAreaId": "mdm-ios-android",
       "phase": "Next",
       "license": "Intune-P1",
-      "link": "https://learn.microsoft.com/en-us/mem/intune/protect/microsoft-tunnel-overview",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_110",
       "swimlane": "Mobile Resource Access",
       "CISAMaturityStage": "Advanced",
       "priority": "P3"
@@ -1656,8 +1656,8 @@
       "icon": "RMI_109.svg",
       "functionalAreaId": "mdm-ios-android",
       "phase": "Next",
-      "license": "Intune-P1",
-      "link": "https://learn.microsoft.com/en-us/mem/intune/fundamentals/remote-help-android",
+      "license": "E3; Intune-P2",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_167",
       "swimlane": "Mobile Resource Access",
       "CISAMaturityStage": "Advanced",
       "priority": "P3"
@@ -1680,7 +1680,7 @@
     },
     {
       "id": "DEV-028",
-      "name": "LoB app Deployment",
+      "name": "LoB App Deployment (Direct APK & DDM)",
       "implementationEffort": "Medium",
       "userImpact": "Low",
       "dependencies": [],
@@ -1760,7 +1760,7 @@
     },
     {
       "id": "DEV-066",
-      "name": "ABM Provisioning",
+      "name": "ABM Provisioning & Enrollment Time Grouping",
       "implementationEffort": "Medium",
       "userImpact": "Low",
       "dependencies": [],
@@ -1776,7 +1776,7 @@
     },
     {
       "id": "DEV-069",
-      "name": "Personally Owned\nWork Profile",
+      "name": "Personally Owned Work Profile (AMAPI & Web Enroll)",
       "implementationEffort": "Low",
       "userImpact": "Medium",
       "dependencies": [],
@@ -1785,7 +1785,7 @@
       "functionalAreaId": "mdm-ios-android",
       "phase": "First",
       "license": "Intune-P1",
-      "link": "https://learn.microsoft.com/en-us/mem/intune/enrollment/android-work-profile-enroll",
+      "link": "https://learn.microsoft.com/en-us/intune/device-enrollment/android/android-management-api-overview",
       "swimlane": "🤖 Android Enrollment",
       "CISAMaturityStage": "Initial",
       "priority": "P0"
@@ -1833,7 +1833,7 @@
       "functionalAreaId": "mdm-ios-android",
       "phase": "Next",
       "license": "Intune-P1",
-      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_099",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_103",
       "swimlane": "🤖 Android Enrollment",
       "CISAMaturityStage": "Initial",
       "priority": "P3"
@@ -2053,7 +2053,7 @@
     },
     {
       "id": "DEV-107",
-      "name": "Platform SSO",
+      "name": "Platform SSO (ADE Setup Registration)",
       "implementationEffort": "Medium",
       "userImpact": "Medium",
       "dependencies": [],
@@ -2074,12 +2074,12 @@
       "implementationEffort": "Medium",
       "userImpact": "Medium",
       "dependencies": [],
-      "status": "ms-roadmap",
+      "status": "not-reviewed",
       "icon": "RMI_063.svg",
       "functionalAreaId": "mdm-macos",
       "phase": "Next",
-      "license": "I-Suite",
-      "link": "https://learn.microsoft.com/en-us/mem/intune/protect/epm-overview",
+      "license": "E5; I-Suite",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_166",
       "swimlane": "Least Privilege and Authentication",
       "CISAMaturityStage": "Advanced",
       "priority": "P3"
@@ -2166,7 +2166,7 @@
     },
     {
       "id": "DEV-111",
-      "name": "Managed macOS Updates",
+      "name": "Managed macOS Updates (DDM)",
       "implementationEffort": "Low",
       "userImpact": "Low",
       "dependencies": [],
@@ -2195,6 +2195,192 @@
       "swimlane": "Device Configuration",
       "CISAMaturityStage": "Initial",
       "priority": "P2"
+    },
+    {
+      "id": "DEV-149",
+      "name": "Stage Rollouts with Deployment Plans",
+      "implementationEffort": "Medium",
+      "userImpact": "Low",
+      "dependencies": [
+        "DEV-119"
+      ],
+      "status": "not-reviewed",
+      "icon": "tenant-admin.svg",
+      "functionalAreaId": "tenant-admin",
+      "phase": "Then",
+      "license": "Intune-P1",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/DEV_149",
+      "CISAMaturityStage": "Advanced",
+      "swimlane": "Admin Access Controls",
+      "priority": "P2"
+    },
+    {
+      "id": "DEV-150",
+      "name": "Security Copilot Agents in Intune (Agentic ID)",
+      "implementationEffort": "Medium",
+      "userImpact": "Low",
+      "dependencies": [
+        "DEV-118"
+      ],
+      "status": "not-reviewed",
+      "icon": "tenant-admin.svg",
+      "functionalAreaId": "tenant-admin",
+      "phase": "Next",
+      "license": "PAYG",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/DEV_150",
+      "CISAMaturityStage": "Optimal",
+      "swimlane": "Admin Access Controls",
+      "isCrossPillar": true,
+      "priority": "P3"
+    },
+    {
+      "id": "DEV-151",
+      "name": "Detect & Block Shadow AI / Local AI Agents",
+      "implementationEffort": "Low",
+      "userImpact": "Medium",
+      "dependencies": [
+        "DEV-137",
+        "DEV-086"
+      ],
+      "status": "not-reviewed",
+      "icon": "RMI_109.svg",
+      "functionalAreaId": "mdm-windows",
+      "phase": "Then",
+      "license": "Intune-P1",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/DEV_151",
+      "CISAMaturityStage": "Advanced",
+      "swimlane": "Endpoint Security",
+      "isCrossPillar": true,
+      "priority": "P1"
+    },
+    {
+      "id": "DEV-152",
+      "name": "Controlled Configuration for Defender Antivirus",
+      "implementationEffort": "Low",
+      "userImpact": "Low",
+      "dependencies": [
+        "DEV-084"
+      ],
+      "status": "not-reviewed",
+      "icon": "RMI_109.svg",
+      "functionalAreaId": "mdm-windows",
+      "phase": "Then",
+      "license": "Intune-P1",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/DEV_152",
+      "CISAMaturityStage": "Advanced",
+      "swimlane": "Endpoint Security",
+      "isCrossPillar": true,
+      "priority": "P2"
+    },
+    {
+      "id": "DEV-153",
+      "name": "Windows Backup & Restore for Organizations",
+      "implementationEffort": "Low",
+      "userImpact": "Low",
+      "dependencies": [
+        "DEV-009"
+      ],
+      "status": "not-reviewed",
+      "icon": "user-automation.svg",
+      "functionalAreaId": "mdm-windows",
+      "phase": "Next",
+      "license": "Intune-P1",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/DEV_153",
+      "CISAMaturityStage": "Advanced",
+      "swimlane": "Windows Enrollment",
+      "priority": "P3"
+    },
+    {
+      "id": "DEV-154",
+      "name": "Apple Intelligence & Android AI Data Controls",
+      "implementationEffort": "Low",
+      "userImpact": "Medium",
+      "dependencies": [
+        "DEV-036"
+      ],
+      "status": "not-reviewed",
+      "icon": "RMI_006.svg",
+      "functionalAreaId": "mam-ios-android",
+      "phase": "Then",
+      "license": "Intune-P1",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_MAM_33_AI_Data_Controls",
+      "CISAMaturityStage": "Advanced",
+      "swimlane": "Data Protection",
+      "isCrossPillar": true,
+      "priority": "P1"
+    },
+    {
+      "id": "DEV-155",
+      "name": "Samsung Knox E-FOTA & Corporate eSIM Lifecycle",
+      "implementationEffort": "Medium",
+      "userImpact": "Low",
+      "dependencies": [
+        "DEV-070"
+      ],
+      "status": "not-reviewed",
+      "icon": "mdm-ios-android.svg",
+      "functionalAreaId": "mdm-ios-android",
+      "phase": "Next",
+      "license": "E3; Intune-P2",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_107",
+      "CISAMaturityStage": "Advanced",
+      "swimlane": "🤖 Android Enrollment",
+      "priority": "P3"
+    },
+    {
+      "id": "DEV-156",
+      "name": "Specialty Devices (Android XR, visionOS & tvOS ADE)",
+      "implementationEffort": "Medium",
+      "userImpact": "Low",
+      "dependencies": [
+        "DEV-066"
+      ],
+      "status": "not-reviewed",
+      "icon": "mdm-ios-android.svg",
+      "functionalAreaId": "mdm-ios-android",
+      "phase": "Next",
+      "license": "E3; Intune-P2",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_108",
+      "CISAMaturityStage": "Optimal",
+      "swimlane": "🍎 Apple Enrollment",
+      "priority": "P3"
+    },
+    {
+      "id": "DEV-157",
+      "name": "macOS Recovery Lock Management",
+      "implementationEffort": "Low",
+      "userImpact": "Low",
+      "dependencies": [
+        "DEV-108"
+      ],
+      "status": "not-reviewed",
+      "icon": "RMI_034.svg",
+      "functionalAreaId": "mdm-macos",
+      "phase": "Then",
+      "license": "Intune-P1",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_macOS_23_Recovery_Lock",
+      "CISAMaturityStage": "Advanced",
+      "swimlane": "Least Privilege and Authentication",
+      "priority": "P1"
+    },
+    {
+      "id": "DEV-158",
+      "name": "Custom Compliance Policy (macOS)",
+      "implementationEffort": "Medium",
+      "userImpact": "Medium",
+      "dependencies": [
+        "DEV-081"
+      ],
+      "status": "not-reviewed",
+      "icon": "RMI_137.svg",
+      "functionalAreaId": "mdm-macos",
+      "phase": "Then",
+      "license": "Intune-P1",
+      "link": "https://microsoft.github.io/zerotrustassessment/docs/workshop-guidance/devices/RMD_macOS_24_Custom_Compliance",
+      "CISAMaturityStage": "Advanced",
+      "swimlane": "Conditional Access and Compliance",
+      "isCrossPillar": true,
+      "priority": "P1"
     }
   ]
 }
